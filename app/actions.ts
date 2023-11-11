@@ -12,16 +12,13 @@ export async function getChats(userId?: string | null) {
   }
 
   try {
-    const data = await fetch(
-      `https://vercel-ai-mf6v.onrender.com/api/chat?id=${userId}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
+    const url = process.env.BASE_CHAT_URL + `?id=${userId}`
+    const data = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
       }
-    ).then(res => res.json())
-    console.log('data', data)
+    }).then(res => res.json())
     return data as Chat[]
   } catch (error) {
     return []
@@ -29,21 +26,20 @@ export async function getChats(userId?: string | null) {
 }
 
 export async function getChat(id: string, userId: string) {
-  const data = await fetch(
-    `https://vercel-ai-mf6v.onrender.com/api/chat/${id}?userId=${userId}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
+  const url = process.env.BASE_CHAT_URL + `/${id}?userId=${userId}`
+  const data = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
     }
-  ).then(res => res.json())
+  }).then(res => res.json())
 
   return data as Chat
 }
 
 export async function removeChat({ id, path }: { id: string; path: string }) {
   const session = await auth()
+  const url = process.env.BASE_CHAT_URL + `/${id}`
 
   if (!session) {
     return {
@@ -51,10 +47,12 @@ export async function removeChat({ id, path }: { id: string; path: string }) {
     }
   }
 
-  await fetch(`https://vercel-ai-mf6v.onrender.com/api/chat/${id}`, {
+  const userId = session?.user?.sub || session?.user?.id
+
+  await fetch(url, {
     method: 'DELETE',
     body: JSON.stringify({
-      userId: session.user.id
+      userId: userId
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -67,36 +65,57 @@ export async function removeChat({ id, path }: { id: string; path: string }) {
 export async function clearChats() {
   const session = await auth()
 
+  if (!session?.user?.sub) {
+    return {
+      error: 'Unauthorized'
+    }
+  } else {
+    if (process.env.BASE_CHAT_URL) {
+      await fetch(process.env.BASE_CHAT_URL, {
+        method: 'DELETE',
+        body: JSON.stringify({
+          userId: session.user.sub
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+
+      revalidatePath('/')
+      return redirect('/')
+    }
+  }
+
   if (!session?.user?.id) {
     return {
       error: 'Unauthorized'
     }
-  }
+  } else {
+    if (process.env.BASE_CHAT_URL) {
+      await fetch(process.env.BASE_CHAT_URL, {
+        method: 'DELETE',
+        body: JSON.stringify({
+          userId: session.user.id
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
 
-  await fetch(`https://vercel-ai-mf6v.onrender.com/api/chat`, {
-    method: 'DELETE',
-    body: JSON.stringify({
-      userId: session.user.id
-    }),
+      revalidatePath('/')
+      return redirect('/')
+    }
+  }
+}
+
+export async function getSharedChat(id: string) {
+  const url = process.env.BASE_CHAT_URL + `/shared/${id}`
+  const chat = await fetch(url, {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
   }).then(res => res.json())
-
-  revalidatePath('/')
-  return redirect('/')
-}
-
-export async function getSharedChat(id: string) {
-  const chat = await fetch(
-    `https://vercel-ai-mf6v.onrender.com/api/chat/shared/${id}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-  ).then(res => res.json())
 
   if (!chat || !chat.sharePath) {
     return null
@@ -107,25 +126,42 @@ export async function getSharedChat(id: string) {
 
 export async function shareChat(chat: Chat) {
   const session = await auth()
+  const url = process.env.BASE_CHAT_URL + '/share'
+  const userId = session?.user?.sub || session?.user?.id
+
+  const payload = {
+    ...chat,
+    chatId: chat.id,
+    userId: userId
+  }
+
+  if (!session?.user?.sub) {
+    return {
+      error: 'Unauthorized'
+    }
+  } else {
+    await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+  }
 
   if (!session?.user?.id) {
     return {
       error: 'Unauthorized'
     }
+  } else {
+    await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
   }
-
-  const payload = {
-    ...chat,
-    chatId: chat.id,
-    userId: session.user.id
-  }
-  await fetch(`https://vercel-ai-mf6v.onrender.com/api/chat/share`, {
-    method: 'POST',
-    body: JSON.stringify(payload),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(res => res.json())
 
   return payload
 }

@@ -15,8 +15,9 @@ const openai = new OpenAIApi(configuration)
 
 export async function POST(req: Request) {
   const json = await req.json()
+  const session = await auth()
   const { messages, previewToken } = json
-  const userId = (await auth())?.user.id
+  const userId = session.user.sub || session.user.id
 
   if (!userId) {
     return new Response('Unauthorized', {
@@ -57,13 +58,15 @@ export async function POST(req: Request) {
       }
       try {
         const parsedPayload = JSON.stringify(payload)
-        await fetch('https://vercel-ai-mf6v.onrender.com/api/chat', {
-          method: 'POST',
-          body: parsedPayload,
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+        if (process.env.BASE_CHAT_URL) {
+          await fetch(process.env.BASE_CHAT_URL, {
+            method: 'POST',
+            body: parsedPayload,
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+        }
       } catch (err) {
         console.log(err)
       }

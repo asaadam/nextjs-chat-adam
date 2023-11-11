@@ -8,6 +8,8 @@ import { cn } from '@/lib/utils'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { Providers } from '@/components/providers'
 import { Header } from '@/components/header'
+import Script from 'next/script'
+import { SessionProvider } from 'next-auth/react'
 
 export const metadata: Metadata = {
   title: {
@@ -42,15 +44,23 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <Toaster />
-        <Providers attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex flex-col min-h-screen">
-            {/* @ts-ignore */}
-            <Header />
-            <main className="flex flex-col flex-1 bg-muted/50">{children}</main>
-          </div>
-          <TailwindIndicator />
-        </Providers>
+        <SessionProvider>
+          <Providers attribute="class" defaultTheme="system" enableSystem>
+            <div className="flex flex-col min-h-screen">
+              {/* @ts-ignore */}
+              <Header />
+              <main className="flex flex-col flex-1 bg-muted/50">
+                {children}
+              </main>
+            </div>
+            <TailwindIndicator />
+          </Providers>
+        </SessionProvider>
       </body>
+      <Script
+        src="https://accounts.google.com/gsi/client"
+        strategy="beforeInteractive"
+      />
     </html>
   )
 }

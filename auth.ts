@@ -1,11 +1,13 @@
 import NextAuth, { type DefaultSession } from 'next-auth'
 import GitHub from 'next-auth/providers/github'
+import CredentialsProvider from 'next-auth/providers/credentials'
 
 declare module 'next-auth' {
   interface Session {
     user: {
       /** The user's id. */
       id: string
+      sub: string
     } & DefaultSession['user']
   }
 }
@@ -15,11 +17,25 @@ export const {
   auth,
   CSRF_experimental // will be removed in future
 } = NextAuth({
-  providers: [GitHub],
+  providers: [
+    GitHub,
+    CredentialsProvider({
+      id: 'googleLogin',
+      name: 'Google',
+      authorize: (credentials: any) => {
+        const parsedCredentials = JSON.parse(credentials.credentials)
+        return {
+          id: parsedCredentials.sub,
+          name: parsedCredentials.name,
+          email: parsedCredentials.email
+        }
+      }
+    })
+  ],
   callbacks: {
     jwt({ token, profile }) {
       if (profile) {
-        token.id = profile.id
+        token.id = profile.sub || profile.id
         token.image = profile.avatar_url || profile.picture
       }
       return token
