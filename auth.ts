@@ -31,20 +31,5 @@ export const {
         }
       }
     })
-  ],
-  callbacks: {
-    jwt({ token, profile }) {
-      if (profile) {
-        token.id = profile.sub || profile.id
-        token.image = profile.avatar_url || profile.picture
-      }
-      return token
-    },
-    authorized({ auth }) {
-      return !!auth?.user // this ensures there is a logged in user for -every- request
-    }
-  },
-  pages: {
-    signIn: '/sign-in' // overrides the next-auth default signin page https://authjs.dev/guides/basics/pages
-  }
+  ]
 })

@@ -7,7 +7,9 @@ export interface SidebarListProps {
 }
 
 export async function SidebarList({ userId }: SidebarListProps) {
-  const chats = await getChats(userId)
+  const chats = await getChats('1234567890')
+  console.log(userId)
+  console.log(chats)
 
   return (
     <div className="flex-1 overflow-auto">
