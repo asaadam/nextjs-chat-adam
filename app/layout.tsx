@@ -57,10 +57,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </Providers>
         </SessionProvider>
       </body>
-      <Script
-        src="https://accounts.google.com/gsi/client"
-        strategy="beforeInteractive"
-      />
     </html>
   )
 }
