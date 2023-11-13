@@ -1,5 +1,12 @@
 'use client'
 
+import { useState } from 'react'
+import { useSession, signIn, SignInOptions } from 'next-auth/react'
+
+interface OneTapSigninOptions {
+  parentContainerId?: string
+}
+
 async function verify(token: string) {
   const url = process.env.NEXT_PUBLIC_BASE_AUTH_URL + '/google/verify'
   const verify = await fetch(url, {
@@ -17,13 +24,6 @@ async function verify(token: string) {
   }
 
   return verify
-}
-
-import { useState } from 'react'
-import { useSession, signIn, SignInOptions } from 'next-auth/react'
-
-interface OneTapSigninOptions {
-  parentContainerId?: string
 }
 
 const useOneTapSignin = (
