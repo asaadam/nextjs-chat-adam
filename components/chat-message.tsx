@@ -12,13 +12,46 @@ import { IconOpenAI, IconUser } from '@/components/ui/icons'
 import { ChatMessageActions } from '@/components/chat-message-actions'
 import { Separator } from './ui/separator'
 import { Badge } from '@/components/ui/badge'
+import Image from 'next/image'
 
 export interface ChatMessageProps {
   message: Message
 }
 
+type Chip = {
+  title: string
+  url: 'google' | 'yahoo' | 'bing'
+}
+
 export function ChatMessage({ message, ...props }: ChatMessageProps) {
-  const chip = ['www.google.com', 'www.yahoo.com', 'www.bing.com']
+  const chip: Chip[] = [
+    {
+      title: 'Google',
+      url: 'google'
+    },
+    {
+      title: 'Yahoo',
+      url: 'yahoo'
+    },
+    {
+      title: 'Bing',
+      url: 'bing'
+    }
+  ]
+
+  const imageConverter = (url: string) => {
+    switch (url) {
+      case 'google':
+        return '/google.png'
+      case 'yahoo':
+        return '/yahoo.png'
+      case 'bing':
+        return '/bing.png'
+      default:
+        return '/google.png'
+    }
+  }
+
   return (
     <div>
       <div
@@ -86,14 +119,21 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
         <div className="w-full">
           <Separator className="my-4" />
           <div className="w-full md:flex md:flex-row ">
-            <span className="mr-2">Learn more:</span>
+            <span className="mr-2">See Web Results:</span>
             {chip.map((item, index) => (
               <Badge
                 key={index}
                 className="m-1 w-fit cursor-pointer "
                 onClick={() => window.open('https://' + item, '_blank')}
               >
-                {item}
+                <Image
+                  width={16}
+                  height={16}
+                  src={imageConverter(item.url)}
+                  alt={item.url}
+                  className="mr-2"
+                />
+                <span className="mr-2">{item.title}</span>
               </Badge>
             ))}
           </div>
