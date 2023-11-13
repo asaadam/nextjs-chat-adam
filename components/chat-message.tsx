@@ -85,13 +85,12 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
       {message.role !== 'user' && (
         <div className="w-full">
           <Separator className="my-4" />
-          <div className="flex flex-row">
-            <p className="mr-2">Learn more:</p>
+          <div className="w-full md:flex md:flex-row ">
+            <span className="mr-2">Learn more:</span>
             {chip.map((item, index) => (
               <Badge
                 key={index}
-                variant="secondary"
-                className="mx-1 cursor-pointer"
+                className="m-1 w-fit cursor-pointer "
                 onClick={() => window.open('https://' + item, '_blank')}
               >
                 {item}
