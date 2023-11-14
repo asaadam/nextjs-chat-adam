@@ -128,7 +128,7 @@ export function LandingComponent({
               </Tooltip>
             </div>
           </div>
-          <div className="mt-2 flex flex-row items-center sm:flex-row sm:items-start flex-wrap sm:mt-6">
+          <div className="mt-2 flex flex-col items-center sm:flex-row sm:items-start sm:mt-6">
             {chip.map((item, index) => (
               <Badge
                 key={index}
