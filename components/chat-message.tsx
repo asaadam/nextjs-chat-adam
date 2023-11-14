@@ -20,7 +20,7 @@ export interface ChatMessageProps {
 
 type Chip = {
   title: string
-  url: 'google' | 'yahoo' | 'bing'
+  url: 'google' | 'yahoo' | 'facebook'
 }
 
 export function ChatMessage({ message, ...props }: ChatMessageProps) {
@@ -34,21 +34,21 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
       url: 'yahoo'
     },
     {
-      title: 'Bing Article about email ',
-      url: 'bing'
+      title: 'Facebook Title Article',
+      url: 'facebook'
     }
   ]
 
   const imageConverter = (url: string) => {
     switch (url) {
       case 'google':
-        return '/google.png'
+        return '/icon-google.svg'
       case 'yahoo':
-        return '/yahoo.png'
-      case 'bing':
-        return '/bing.png'
+        return '/icon-yahoo.svg'
+      case 'facebook':
+        return '/icon-facebook.svg'
       default:
-        return '/google.png'
+        return ''
     }
   }
 
