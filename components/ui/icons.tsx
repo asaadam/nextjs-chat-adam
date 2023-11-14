@@ -476,6 +476,71 @@ function IconChevronUpDown({
   )
 }
 
+function IconChat({ className, ...props }: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      className={cn('h-7 w-7', className)}
+      viewBox="0 0 30 30"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g opacity="0.3">
+        <path
+          d="M11.2171 23.2614C12.5099 23.8946 13.9634 24.25 15.5 24.25C20.8848 24.25 25.25 19.8848 25.25 14.5C25.25 9.11522 20.8848 4.75 15.5 4.75C10.1152 4.75 5.75 9.11522 5.75 14.5C5.75 16.4989 6.35153 18.3573 7.38345 19.9041M11.2171 23.2614L5.75 24.25L7.38345 19.9041M11.2171 23.2614L11.225 23.26M7.38345 19.9041L7.385 19.9"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+    </svg>
+  )
+}
+
+function IconGallery({ className, ...props }: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      className={cn('h-7 w-7', className)}
+      viewBox="0 0 30 30"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g opacity="0.3">
+        <path
+          d="M22.5 23.75L22.5 7.25C22.5 6.42157 21.8284 5.75 21 5.75L9 5.75C8.17157 5.75 7.5 6.42157 7.5 7.25L7.5 23.75C7.5 24.5784 8.17157 25.25 9 25.25L21 25.25C21.8284 25.25 22.5 24.5784 22.5 23.75Z"
+          stroke="white"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M17.3203 13.232C18.3379 13.232 19.1629 12.407 19.1629 11.3894C19.1629 10.3718 18.3379 9.54688 17.3203 9.54688C16.3027 9.54688 15.4778 10.3718 15.4778 11.3894C15.4778 12.407 16.3027 13.232 17.3203 13.232Z"
+          stroke="white"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M7.5 16.711C8.02053 16.6225 8.54939 16.5786 9.07933 16.5799C10.9161 16.5429 12.7079 17.0876 14.135 18.1168C16.4468 19.784 17.3203 22.6737 17.3203 25.25"
+          stroke="white"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M22.5 19.0563C21.4841 18.7512 20.4189 18.5958 19.3466 18.5964C17.9892 18.5937 16.6457 18.8381 15.3984 19.3144"
+          stroke="white"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+    </svg>
+  )
+}
+
 export {
   IconEdit,
   IconNextChat,
@@ -503,5 +568,7 @@ export {
   IconShare,
   IconUsers,
   IconExternalLink,
-  IconChevronUpDown
+  IconChevronUpDown,
+  IconChat,
+  IconGallery
 }
