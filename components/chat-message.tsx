@@ -20,27 +20,31 @@ export interface ChatMessageProps {
 
 type Chip = {
   title: string
-  url: 'google' | 'yahoo' | 'facebook'
+  type: 'google' | 'yahoo' | 'facebook'
+  url: string
 }
 
 export function ChatMessage({ message, ...props }: ChatMessageProps) {
   const chip: Chip[] = [
     {
       title: 'Some article Title',
-      url: 'google'
+      type: 'google',
+      url: 'google.com'
     },
     {
       title: 'title Yahoo article',
-      url: 'yahoo'
+      type: 'yahoo',
+      url: 'yahoo.com'
     },
     {
       title: 'Facebook Title Article',
-      url: 'facebook'
+      type: 'facebook',
+      url: 'facebook.com'
     }
   ]
 
-  const imageConverter = (url: string) => {
-    switch (url) {
+  const imageConverter = (type: 'google' | 'yahoo' | 'facebook') => {
+    switch (type) {
       case 'google':
         return '/icon-google.svg'
       case 'yahoo':
@@ -125,12 +129,12 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
                 <Badge
                   key={index}
                   className="m-1 w-fit cursor-pointer "
-                  onClick={() => window.open('https://' + item, '_blank')}
+                  onClick={() => window.open('https://' + item.url, '_blank')}
                 >
                   <Image
                     width={16}
                     height={16}
-                    src={imageConverter(item.url)}
+                    src={imageConverter(item.type)}
                     alt={item.url}
                     className="mr-2"
                   />
