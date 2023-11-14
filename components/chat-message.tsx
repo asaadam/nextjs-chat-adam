@@ -26,15 +26,15 @@ type Chip = {
 export function ChatMessage({ message, ...props }: ChatMessageProps) {
   const chip: Chip[] = [
     {
-      title: 'Google',
+      title: 'Some article Title',
       url: 'google'
     },
     {
-      title: 'Yahoo',
+      title: 'title Yahoo article',
       url: 'yahoo'
     },
     {
-      title: 'Bing',
+      title: 'Bing Article about email ',
       url: 'bing'
     }
   ]
@@ -68,9 +68,9 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
         >
           {message.role === 'user' ? <IconUser /> : <IconOpenAI />}
         </div>
-        <div className="flex-1 px-1 ml-4 space-y-2 overflow-hidden">
+        <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
           <MemoizedReactMarkdown
-            className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
+            className="prose dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 break-words"
             remarkPlugins={[remarkGfm, remarkMath]}
             components={{
               p({ children }) {
@@ -80,7 +80,7 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
                 if (children.length) {
                   if (children[0] == '▍') {
                     return (
-                      <span className="mt-1 cursor-default animate-pulse">
+                      <span className="mt-1 animate-pulse cursor-default">
                         ▍
                       </span>
                     )
@@ -116,26 +116,28 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
         </div>
       </div>
       {message.role !== 'user' && (
-        <div className="w-full">
+        <div>
           <Separator className="my-4" />
-          <div className="w-full md:flex md:flex-row ">
-            <span className="mr-2">See Web Results:</span>
-            {chip.map((item, index) => (
-              <Badge
-                key={index}
-                className="m-1 w-fit cursor-pointer "
-                onClick={() => window.open('https://' + item, '_blank')}
-              >
-                <Image
-                  width={16}
-                  height={16}
-                  src={imageConverter(item.url)}
-                  alt={item.url}
-                  className="mr-2"
-                />
-                <span className="mr-2">{item.title}</span>
-              </Badge>
-            ))}
+          <div className="flex flex-col items-center md:flex-row ">
+            <p className="text-xs mr-2 ">See Web Results:</p>
+            <div className="flex flex-col sm:flex-row items-center sm:items-start">
+              {chip.map((item, index) => (
+                <Badge
+                  key={index}
+                  className="m-1 w-fit cursor-pointer "
+                  onClick={() => window.open('https://' + item, '_blank')}
+                >
+                  <Image
+                    width={16}
+                    height={16}
+                    src={imageConverter(item.url)}
+                    alt={item.url}
+                    className="mr-2"
+                  />
+                  <span className="mr-2">{item.title}</span>
+                </Badge>
+              ))}
+            </div>
           </div>
         </div>
       )}
