@@ -6,10 +6,9 @@ import Textarea from 'react-textarea-autosize'
 
 import { Button } from '@/components/ui/button'
 import {
-  IconArrowRight,
+  IconArrowRightLong,
   IconChat,
   IconGallery,
-  IconNextChat,
   IconPlus
 } from '@/components/ui/icons'
 import {
@@ -68,10 +67,10 @@ export function LandingComponent({
         <div className="flex flex-col items-center justify-center">
           <div className="px-14 sm:px-0">
             <Image
-              src="/blackbox-logo.svg"
+              src="/blackbox-logo-ai.svg"
               width={445}
               height={52}
-              alt="logo"
+              alt="blackbox-logo-ai"
             />
           </div>
           <p className="mt-4 text-sm font-normal text-white text-opacity-50 sm:text-lg">
@@ -109,7 +108,7 @@ export function LandingComponent({
               onChange={e => setInput(e.target.value)}
               placeholder="Ask anything or hit / for blackbox command"
               spellCheck={false}
-              className="min-h-[40px] w-full resize-none bg-transparent px-4 py-4 focus-within:outline-none sm:min-h-[60px] sm:py-[1.3rem] sm:text-sm"
+              className="min-h-[40px] w-full resize-none border-none bg-transparent p-4 focus-within:outline-none sm:min-h-[60px] sm:py-[1.3rem] sm:text-sm"
             />
             <div className="absolute right-3 top-3.5 sm:right-4 sm:top-4">
               <Tooltip>
@@ -120,7 +119,7 @@ export function LandingComponent({
                     disabled={isLoading || input === ''}
                     className="h-7 w-7"
                   >
-                    <IconArrowRight />
+                    <IconArrowRightLong />
                     <span className="sr-only">Send message</span>
                   </Button>
                 </TooltipTrigger>
@@ -128,11 +127,11 @@ export function LandingComponent({
               </Tooltip>
             </div>
           </div>
-          <div className="mt-2 flex flex-col items-center sm:flex-row sm:items-start sm:mt-6">
+          <div className="mt-2 flex flex-col items-center lg:flex-row lg:items-start lg:mt-6">
             {chip.map((item, index) => (
               <Badge
                 key={index}
-                className="mr-4 mt-2 w-fit cursor-pointer rounded px-4 py-2 sm:mt-0"
+                className="mr-4 mt-2 w-fit cursor-pointer rounded px-4 py-2 lg:mt-0"
                 variant="secondary"
                 onClick={() => window.open('https://' + item.url, '_blank')}
               >

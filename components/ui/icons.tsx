@@ -541,6 +541,102 @@ function IconGallery({ className, ...props }: React.ComponentProps<'svg'>) {
   )
 }
 
+function IconArrowRightLong({
+  className,
+  ...props
+}: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      className={cn('h-3 w-3', className)}
+      width="12"
+      height="13"
+      viewBox="0 0 12 13"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M0.428569 6.83435L11.5714 6.83435"
+        stroke="black"
+        stroke-width="0.857143"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.57143 9.83435L11.5714 6.83435L8.57143 3.83435"
+        stroke="black"
+        stroke-width="0.857143"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+function IconTwitterOutline({
+  className,
+  ...props
+}: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      className={cn('h-[14px] w-[15px]', className)}
+      viewBox="0 0 14 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M3.99996 9.9C3.28589 10.4609 2.4663 10.8724 1.58996 11.11C1.49343 11.145 1.41003 11.2089 1.3511 11.293C1.29216 11.3771 1.26054 11.4773 1.26054 11.58C1.26054 11.6827 1.29216 11.7829 1.3511 11.867C1.41003 11.9511 1.49343 12.015 1.58996 12.05C8.50996 14.89 12.91 10.5 12.24 5.63L13.36 3.31H12.06C10.44 1.32 6.13996 1.42 6.84996 5.66C6.84996 5.66 4.54996 6.07 1.60996 3.18C1.54195 3.11286 1.45612 3.06661 1.36264 3.04674C1.26916 3.02686 1.17195 3.0342 1.08251 3.06787C0.993067 3.10154 0.915151 3.16014 0.857985 3.23673C0.80082 3.31331 0.766801 3.40468 0.759956 3.5C0.449088 4.77785 0.60466 6.1247 1.19866 7.29803C1.79266 8.47136 2.78605 9.39407 3.99996 9.9Z"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+function IconInstagramOutline({
+  className,
+  ...props
+}: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      className={cn('h-[14px] w-[15px]', className)}
+      viewBox="0 0 14 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M10.3333 4.14417C10.1952 4.14417 10.0833 4.03224 10.0833 3.89417C10.0833 3.75609 10.1952 3.64417 10.3333 3.64417"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M10.3333 4.14417C10.4713 4.14417 10.5833 4.03224 10.5833 3.89417C10.5833 3.75609 10.4713 3.64417 10.3333 3.64417"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M0.858276 3.93149C0.858276 2.51045 2.01025 1.35847 3.43129 1.35847H10.2927C11.7137 1.35847 12.8657 2.51045 12.8657 3.93149V10.7929C12.8657 12.2139 11.7137 13.3659 10.2927 13.3659H3.43129C2.01025 13.3659 0.858276 12.2139 0.858276 10.7929V3.93149Z"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <circle
+        cx="6.86208"
+        cy="7.36208"
+        r="2.54958"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
 export {
   IconEdit,
   IconNextChat,
@@ -570,5 +666,8 @@ export {
   IconExternalLink,
   IconChevronUpDown,
   IconChat,
-  IconGallery
+  IconGallery,
+  IconArrowRightLong,
+  IconTwitterOutline,
+  IconInstagramOutline
 }
