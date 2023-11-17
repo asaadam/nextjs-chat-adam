@@ -53,39 +53,46 @@ export function LandingComponent({
       url: '/'
     }
   ]
-  const { messages, append, reload, stop, isLoading, input, setInput } =
-    useChat({
-      initialMessages,
-      id,
-      body: {
-        id
-      },
-      onResponse(response) {
-        if (response.status === 401) {
-          toast.error(response.statusText)
-        }
+  const { isLoading, input, setInput } = useChat({
+    initialMessages,
+    id,
+    body: {
+      id
+    },
+    onResponse(response) {
+      if (response.status === 401) {
+        toast.error(response.statusText)
       }
-    })
+    }
+  })
   return (
     <div className="flex h-screen flex-1 flex-col items-center justify-center bg-white dark:bg-black">
       <div className="flex flex-col items-center justify-center">
         <div className="px-14 sm:px-0">
           <Image
-            src="/blackbox-logo-ai.svg"
+            src={'/blackbox-logo-ai.svg'}
             width={445}
             height={52}
             alt="blackbox-logo-ai"
+            className="hidden dark:flex"
+          />
+          <Image
+            src={'/blackbox-logo-ai-light.png'}
+            width={445}
+            height={52}
+            alt="blackbox-logo-ai"
+            className="flex dark:hidden"
           />
         </div>
-        <p className="mt-4 text-sm font-normal text-white text-opacity-50 sm:text-lg">
+        <p className="mt-4 text-sm font-normal text-black dark:text-white/50 sm:text-lg">
           Your AI Coding Assistant for 10X Faster, Better Coding.
         </p>
       </div>
       <div className="mx-auto px-4 sm:max-w-4xl">
         <div className="sm:max-h-58 relative mt-6 flex max-h-40 w-full grow flex-row overflow-hidden border bg-white px-8 dark:bg-black sm:mt-10 sm:rounded-md sm:px-12">
           <Popover>
-            <PopoverTrigger className="absolute left-3 top-3.5 h-7 w-7 rounded border-white/10 bg-background sm:left-4 sm:top-4">
-              <IconPlus className="w-full fill-white/30" />
+            <PopoverTrigger className="absolute left-3 top-3.5 h-7 w-7 rounded border-black/10 bg-black/5 dark:border-white/10 dark:bg-background sm:left-4 sm:top-4">
+              <IconPlus className="fill-outerSpace/30 w-full dark:fill-white/30" />
             </PopoverTrigger>
             <PopoverContent
               className="mb-4 ml-24 max-w-[160px] px-1 py-0"
@@ -96,13 +103,14 @@ export function LandingComponent({
                   variant="ghost"
                   className="my-1 w-full justify-start px-3"
                 >
-                  <IconChat className="mr-2 h-[30px] w-[30px]" /> New Chat
+                  <IconChat className="mr-2 h-[30px] w-[30px] fill-none stroke-black dark:stroke-white" />{' '}
+                  New Chat
                 </Button>
                 <Button
                   variant="ghost"
                   className="my-1 w-full justify-start px-3"
                 >
-                  <IconGallery className="mr-2 h-[30px] w-[30px]" />
+                  <IconGallery className="mr-2 h-[30px] w-[30px] stroke-black dark:stroke-white" />
                   Attach
                 </Button>
               </div>
@@ -126,7 +134,7 @@ export function LandingComponent({
                   disabled={isLoading}
                   className="h-7 w-7"
                 >
-                  <IconArrowRightLong />
+                  <IconArrowRightLong className="stroke-white dark:stroke-black" />
                   <span className="sr-only">Send message</span>
                 </Button>
               </TooltipTrigger>

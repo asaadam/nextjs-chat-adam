@@ -481,14 +481,12 @@ function IconChat({ className, ...props }: React.ComponentProps<'svg'>) {
     <svg
       className={cn('h-7 w-7', className)}
       viewBox="0 0 30 30"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <g opacity="0.3">
         <path
           d="M11.2171 23.2614C12.5099 23.8946 13.9634 24.25 15.5 24.25C20.8848 24.25 25.25 19.8848 25.25 14.5C25.25 9.11522 20.8848 4.75 15.5 4.75C10.1152 4.75 5.75 9.11522 5.75 14.5C5.75 16.4989 6.35153 18.3573 7.38345 19.9041M11.2171 23.2614L5.75 24.25L7.38345 19.9041M11.2171 23.2614L11.225 23.26M7.38345 19.9041L7.385 19.9"
-          stroke="white"
           stroke-width="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -510,28 +508,24 @@ function IconGallery({ className, ...props }: React.ComponentProps<'svg'>) {
       <g opacity="0.3">
         <path
           d="M22.5 23.75L22.5 7.25C22.5 6.42157 21.8284 5.75 21 5.75L9 5.75C8.17157 5.75 7.5 6.42157 7.5 7.25L7.5 23.75C7.5 24.5784 8.17157 25.25 9 25.25L21 25.25C21.8284 25.25 22.5 24.5784 22.5 23.75Z"
-          stroke="white"
           stroke-width="1.75"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
         <path
           d="M17.3203 13.232C18.3379 13.232 19.1629 12.407 19.1629 11.3894C19.1629 10.3718 18.3379 9.54688 17.3203 9.54688C16.3027 9.54688 15.4778 10.3718 15.4778 11.3894C15.4778 12.407 16.3027 13.232 17.3203 13.232Z"
-          stroke="white"
           stroke-width="1.75"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
         <path
           d="M7.5 16.711C8.02053 16.6225 8.54939 16.5786 9.07933 16.5799C10.9161 16.5429 12.7079 17.0876 14.135 18.1168C16.4468 19.784 17.3203 22.6737 17.3203 25.25"
-          stroke="white"
           stroke-width="1.75"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
         <path
           d="M22.5 19.0563C21.4841 18.7512 20.4189 18.5958 19.3466 18.5964C17.9892 18.5937 16.6457 18.8381 15.3984 19.3144"
-          stroke="white"
           stroke-width="1.75"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -557,14 +551,12 @@ function IconArrowRightLong({
     >
       <path
         d="M0.428569 6.83435L11.5714 6.83435"
-        stroke="black"
         stroke-width="0.857143"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M8.57143 9.83435L11.5714 6.83435L8.57143 3.83435"
-        stroke="black"
         stroke-width="0.857143"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -587,7 +579,6 @@ function IconTwitterOutline({
     >
       <path
         d="M3.99996 9.9C3.28589 10.4609 2.4663 10.8724 1.58996 11.11C1.49343 11.145 1.41003 11.2089 1.3511 11.293C1.29216 11.3771 1.26054 11.4773 1.26054 11.58C1.26054 11.6827 1.29216 11.7829 1.3511 11.867C1.41003 11.9511 1.49343 12.015 1.58996 12.05C8.50996 14.89 12.91 10.5 12.24 5.63L13.36 3.31H12.06C10.44 1.32 6.13996 1.42 6.84996 5.66C6.84996 5.66 4.54996 6.07 1.60996 3.18C1.54195 3.11286 1.45612 3.06661 1.36264 3.04674C1.26916 3.02686 1.17195 3.0342 1.08251 3.06787C0.993067 3.10154 0.915151 3.16014 0.857985 3.23673C0.80082 3.31331 0.766801 3.40468 0.759956 3.5C0.449088 4.77785 0.60466 6.1247 1.19866 7.29803C1.79266 8.47136 2.78605 9.39407 3.99996 9.9Z"
-        stroke="white"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
@@ -609,19 +600,16 @@ function IconInstagramOutline({
     >
       <path
         d="M10.3333 4.14417C10.1952 4.14417 10.0833 4.03224 10.0833 3.89417C10.0833 3.75609 10.1952 3.64417 10.3333 3.64417"
-        stroke="white"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M10.3333 4.14417C10.4713 4.14417 10.5833 4.03224 10.5833 3.89417C10.5833 3.75609 10.4713 3.64417 10.3333 3.64417"
-        stroke="white"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M0.858276 3.93149C0.858276 2.51045 2.01025 1.35847 3.43129 1.35847H10.2927C11.7137 1.35847 12.8657 2.51045 12.8657 3.93149V10.7929C12.8657 12.2139 11.7137 13.3659 10.2927 13.3659H3.43129C2.01025 13.3659 0.858276 12.2139 0.858276 10.7929V3.93149Z"
-        stroke="white"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
@@ -629,7 +617,6 @@ function IconInstagramOutline({
         cx="6.86208"
         cy="7.36208"
         r="2.54958"
-        stroke="white"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
@@ -648,24 +635,40 @@ function IconMenu({ className, ...props }: React.ComponentProps<'svg'>) {
     >
       <path
         d="M3 12H21"
-        stroke="white"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M3 6H21"
-        stroke="white"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M3 18H21"
-        stroke="white"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+function IconMoonFill({ className, ...props }: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      className={cn('h-[14px] w-[15px]', className)}
+      viewBox="0 0 14 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M9 0.5C7.14348 0.5 5.36301 1.2375 4.05025 2.55025C2.7375 3.86301 2 5.64348 2 7.5C2 9.35652 2.7375 11.137 4.05025 12.4497C5.36301 13.7625 7.14348 14.5 9 14.5L9.00352 14.5C9.91581 14.4936 10.8183 14.3109 11.6612 13.962C11.8367 13.8893 11.9559 13.7235 11.9688 13.534C11.9818 13.3445 11.8862 13.164 11.7221 13.0682C10.7476 12.4992 9.93806 11.6862 9.37309 10.7093C8.80855 9.73316 8.50768 8.62696 8.50001 7.49939C8.50482 6.37449 8.80148 5.27009 9.361 4.29417C9.92095 3.31752 10.725 2.50305 11.6943 1.93051C11.8574 1.83414 11.9521 1.65381 11.9388 1.46478C11.9254 1.27576 11.8063 1.11052 11.6313 1.03803C10.7984 0.693191 9.90726 0.510589 9.00585 0.500034L9.00585 0.5H9Z"
+        fill={props.color || '#131416'}
       />
     </svg>
   )
@@ -704,5 +707,6 @@ export {
   IconArrowRightLong,
   IconTwitterOutline,
   IconInstagramOutline,
-  IconMenu
+  IconMenu,
+  IconMoonFill
 }
