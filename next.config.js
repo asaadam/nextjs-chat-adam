@@ -1,8 +1,14 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+const withNextra = require('nextra')({
+  theme: 'nextra-theme-docs',
+  themeConfig: './theme.config.tsx'
+})
+
+module.exports = withNextra({
   reactStrictMode: true,
   experimental: {
-    serverActions: true,
+    serverActions: true
   },
   images: {
     remotePatterns: [
@@ -10,8 +16,8 @@ module.exports = {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
         port: '',
-        pathname: '**',
-      },
-    ],
-  },
-};
+        pathname: '**'
+      }
+    ]
+  }
+})

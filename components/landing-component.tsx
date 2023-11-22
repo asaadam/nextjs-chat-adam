@@ -66,7 +66,7 @@ export function LandingComponent({
     }
   })
   return (
-    <div className="flex h-screen flex-1 flex-col items-center justify-center bg-white dark:bg-black">
+    <div className="flex h-screen flex-1 flex-col items-center justify-center bg-white dark:bg-[#131416]">
       <div className="flex flex-col items-center justify-center">
         <div className="px-14 sm:px-0">
           <Image

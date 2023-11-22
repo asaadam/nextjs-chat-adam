@@ -17,11 +17,18 @@ import Image from 'next/image'
 import { ThemeToggle } from './theme-toggle'
 import { TelegramButton } from './button-telegram'
 import { VSCodeButton } from './button-vscode'
+import { BookText } from 'lucide-react'
 
 export async function HeaderMenu() {
   return (
     <>
       <div className="hidden items-center justify-end space-x-3 lg:flex">
+        <a href="/docs">
+          <Button variant="outline" className="text-xs">
+            <BookText className="mr-2 h-3 w-3" />
+            Docs
+          </Button>
+        </a>
         <TelegramButton />
         <VSCodeButton />
         <div className="hidden items-center justify-end lg:flex">

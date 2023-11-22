@@ -23,18 +23,18 @@ export function ThemeToggle({ variant = 'button' }: ThemeToggleType) {
   return variant === 'button' ? (
     <Button variant="ghost" size="icon" onClick={onClick}>
       {!theme ? null : theme === 'dark' ? (
-        <IconMoonFill className="transition-all" color="white" />
+        <IconMoonFill className="fill-white transition-all" />
       ) : (
-        <IconMoonFill className="transition-all" color="black" />
+        <IconMoonFill className="fill-black transition-all" />
       )}
       <span className="sr-only">Toggle theme</span>
     </Button>
   ) : (
     <div onClick={onClick}>
       {!theme ? null : theme === 'dark' ? (
-        <IconMoonFill className="transition-all" color="white" />
+        <IconMoonFill className="fill-white transition-all" />
       ) : (
-        <IconMoonFill className="transition-all" color="black" />
+        <IconMoonFill className="fill-black transition-all" />
       )}
     </div>
   )

@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-black: #1a1a1b;
+  --dark-gray: #3e323f;
+  --base-gray: #646265;
+  --ash-gray: #bab8bb;
+  --silver-gray: #e6e6e6;
+  --background-gray: #f9f9f9;
+  --success-green: #19af66;
+  --brand-red: #d22;
+  --brand-orange: #fb6e00;
+  --brand-yellow: #ffc500;
+  --orange-light8: #fff4eb;
+  --blue: #047dd2;
+}
+
+/* Base body styles */
+body {
+  font-family: Inter;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: var(--base-gray);
+}
+
+/* Heading weights */
+h1,
+h3 {
+  font-weight: 600;
+}
+h2 {
+  font-weight: 400;
+}
+h4,
+h5,
+h6,
+h7 {
+  font-weight: 500;
+}
+
+/* Heading sizes */
+h1 {
+  font-size: 48px;
+  line-height: 58px;
+}
+h2 {
+  font-size: 32px;
+  line-height: 38px;
+}
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+}
+h4 {
+  font-size: 20px;
+  line-height: 28px;
+}
+h5,
+h6,
+h7 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Sidebar styles */
+nav .nextra-scrollbar .nx-text-primary-600 {
+  color: var(--silver-gray);
+  background: var(--ash-gray);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 21px; /* 161.538% */
+}
+
+/* Sidebar styles for dark mode */
+.dark nav .nextra-scrollbar .nx-text-primary-600 {
+  color: #fb6e00;
+  background: var(--blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px; /* 161.538% */
+}
+
+/* Sidebar font styles */
+nav .nextra-scrollbar {
+  font-size: 13px;
+  color: var(--base-gray);
+  font-weight: 600;
+  line-height: 21px;
+}
+
+/* Sidebar active link styles */
+.nextra-sidebar-container .active > a {
+  border-radius: 4px;
+  background: linear-gradient(
+    104deg,
+    rgba(255, 197, 0, 0.12) 0%,
+    rgba(220, 34, 35, 0.12) 41.15%,
+    rgba(114, 0, 150, 0.12) 100%
+  );
+  color: var(--brand-black);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+/* Sidebar active link styles for dark mode */
+.dark .nextra-sidebar-container .active > a {
+  background: var(--base-gray);
+  color: var(--background-gray);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+/* Card hover styles */
+.nextra-cards .nextra-card:hover {
+  border-radius: 4px;
+  border: 1px solid var(--silver-gray);
+  background: linear-gradient(
+    104deg,
+    rgba(255, 197, 0, 0.2) 0%,
+    rgba(220, 34, 35, 0.2) 41.15%,
+    rgba(114, 0, 150, 0.2) 100%
+  );
+}
+
+/* Card styles for dark mode */
+.dark .nextra-cards .nextra-card {
+  background-color: #3a3536 !important;
+}
+.dark .nextra-cards .nextra-card:hover {
+  border-radius: 4px;
+  background: var(--base-gray) none !important;
+}
+
+/* Code block styles */
+.nextra-code-block pre {
+  background-color: var(--background-gray) !important;
+}
+html.dark .nextra-code-block pre {
+  background-color: #3a3536 !important;
+}
+
+/* TOC font weight */
+.nextra-toc,
+.nextra-toc * {
+  font-weight: 500 !important;
+}
+
+/* External link styles */
+.external-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+.external-link-text {
+  margin-right: 8px;
+}
+
+/* Base dark mode styles */
+html.dark body {
+  background-color: var(--brand-black) !important;
+}
+html.dark div.nx-sticky.nx-bottom-0 {
+  background-color: var(--brand-black) !important;
+}
+html.dark div.nextra-nav-container {
+  background-color: var(--brand-black) !important;
+}
+.dark .nx-sticky {
+  box-shadow: none !important;
+}
+
+/* Center numbers in steps */
+.nextra-steps h3::before {
+  line-height: 25px;
+}
+
+/* Breadcrumb link styles in dark mode */
+.dark .nextra-breadcrumb a,
+.dark .nextra-breadcrumb a:visited,
+.dark .nextra-breadcrumb a:hover,
+.dark .nextra-breadcrumb a:active {
+  background: none !important;
+  -webkit-text-fill-color: var(--ash-gray) !important;
+}
