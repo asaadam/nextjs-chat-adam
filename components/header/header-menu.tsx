@@ -43,7 +43,7 @@ export async function HeaderMenu() {
         </div>
       </div>
       <div className="flex items-center justify-end space-x-2 lg:hidden">
-        <Menubar className="border-none">
+        <Menubar className="border-none bg-transparent">
           <MenubarMenu>
             <MenubarTrigger>
               <IconMenu className="stroke-black dark:stroke-white" />
@@ -83,6 +83,12 @@ export async function HeaderMenu() {
                 />
                 Install VSCode Extension
               </MenubarItem>
+              <a href="/docs">
+                <MenubarItem className="py-3">
+                  <BookText className="mr-3 h-4 w-4" />
+                  Docs
+                </MenubarItem>
+              </a>
               <MenubarSeparator />
               <div className="flex flex-row">
                 <MenubarItem className="mr-1">

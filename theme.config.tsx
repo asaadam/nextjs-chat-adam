@@ -16,6 +16,14 @@ const config: DocsThemeConfig = {
   darkMode: true,
   nextThemes: {
     defaultTheme: 'dark'
+  },
+  head: () => {
+    return (
+      <>
+        <meta property="og:title" content={'Blackbox documentation'} />
+        <meta property="og:description" content={'Blackbox documentation'} />
+      </>
+    )
   }
 }
 
